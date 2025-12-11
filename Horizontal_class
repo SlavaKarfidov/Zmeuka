@@ -1,0 +1,19 @@
+namespace Snake{
+public partial class HorizontalLine : Figure
+{
+
+
+
+    public HorizontalLine(int x_start, int x_end, int y, char symbol)
+    {
+        points = new List<Snake_point>();
+
+        for (int x = x_start; x <= x_end; x++)
+        {
+            points.Add(new Snake_point(x, y, symbol));
+            Console.SetCursorPosition(x, y);
+            Console.Write(symbol);
+        }
+    }
+}
+}
