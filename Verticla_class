@@ -1,0 +1,17 @@
+namespace Snake{
+public partial class VerticalLine : Figure
+{
+    public VerticalLine(int y_start, int y_end, int x, char symbol)
+    {
+        points = new List<Snake_point>();
+
+        for (int y = y_start; y <= y_end; y++)
+        {
+
+            points.Add(new Snake_point(x, y, symbol));
+            Console.SetCursorPosition(x, y);
+            Console.Write(symbol);
+        }
+    }
+}
+}

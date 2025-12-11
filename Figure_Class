@@ -1,0 +1,19 @@
+namespace Snake{
+public partial class Figure
+{
+    protected List<Snake_point> points = new List<Snake_point>();
+
+    public void Draw()
+    {
+        foreach (Snake_point point in points)
+        {
+            point.Draw();
+        }
+    }
+
+    public List<Snake_point> GetPoints()
+    {
+        return points;
+    }
+}
+}

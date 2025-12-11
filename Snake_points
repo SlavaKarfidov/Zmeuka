@@ -1,0 +1,22 @@
+namespace Snake{
+public partial class Snake_point
+{   
+    public int X;
+    public int Y;
+    public char symbol;
+
+
+    public Snake_point(int x, int y, char symbol)
+    {
+        this.X = x;
+        this.Y = y;
+        this.symbol = symbol;
+    }
+
+    public void Draw()
+    {
+        Console.SetCursorPosition(X, Y);
+        Console.Write(symbol);
+    }
+}
+}

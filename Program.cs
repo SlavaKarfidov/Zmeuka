@@ -2,130 +2,10 @@
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 
-public class Snake_point
-{   
-    public int X;
-    public int Y;
-    public char symbol;
 
+namespace Snake{
 
-    public Snake_point(int x, int y, char symbol)
-    {
-        this.X = x;
-        this.Y = y;
-        this.symbol = symbol;
-    }
-
-    public void Draw()
-    {
-        Console.SetCursorPosition(X, Y);
-        Console.Write(symbol);
-    }
-}
-public class Figure
-{
-    protected List<Snake_point> points = new List<Snake_point>();
-
-    public void Draw()
-    {
-        foreach (Snake_point point in points)
-        {
-            point.Draw();
-        }
-    }
-
-    public List<Snake_point> GetPoints()
-    {
-        return points;
-    }
-}
-public class HorizontalLine : Figure
-{
-
-
-
-    public HorizontalLine(int x_start, int x_end, int y, char symbol)
-    {
-        points = new List<Snake_point>();
-
-        for (int x = x_start; x <= x_end; x++)
-        {
-            points.Add(new Snake_point(x, y, symbol));
-            Console.SetCursorPosition(x, y);
-            Console.Write(symbol);
-        }
-
-
-
-        
-            
-        
-    }
-}
-public class VerticalLine : Figure
-{
-
-
-
-    public VerticalLine(int y_start, int y_end, int x, char symbol)
-    {
-        points = new List<Snake_point>();
-
-        for (int y = y_start; y <= y_end; y++)
-        {
-
-            points.Add(new Snake_point(x, y, symbol));
-            Console.SetCursorPosition(x, y);
-            Console.Write(symbol);
-        }
-
-
-
-
-
-
-    }
-}
-
-public class Coordinate
-{
-    public int X;
-    public int Y;
-    public Coordinate(int x, int y)
-    {
-        this.X = x;
-        this.Y = y;
-    }
-}
-
-public class Poly : Figure
-{
-    private HorizontalLine up;
-    private HorizontalLine bottom;
-    private VerticalLine left;
-    private VerticalLine right;
-
-    public Poly(Coordinate up_left, Coordinate bottom_right, char symbol)
-    {
-        up = new HorizontalLine(x_start: up_left.X, x_end: bottom_right.X, y: up_left.Y, symbol: symbol);
-        bottom = new HorizontalLine(x_start: up_left.X, x_end: bottom_right.X, y: bottom_right.Y, symbol: symbol);
-        left = new VerticalLine(y_start: up_left.Y, y_end: bottom_right.Y, x: up_left.X, symbol: symbol);
-        right = new VerticalLine(y_start: up_left.Y, y_end: bottom_right.Y, x: bottom_right.X, symbol: symbol);
-    }
-
-    public new void Draw()
-    {
-        up.Draw();
-        bottom.Draw();
-        left.Draw();
-        right.Draw();
-    }
-}
-
-
-
-
-public class Program
+public partial class Program
 {
     public static void Main()
     {
@@ -224,8 +104,6 @@ public class Program
             direction = newDirection;
         }
 
-
-
-
     }
+}
 }

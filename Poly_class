@@ -1,0 +1,25 @@
+namespace Snake{
+public partial class Poly : Figure
+{
+    private HorizontalLine up;
+    private HorizontalLine bottom;
+    private VerticalLine left;
+    private VerticalLine right;
+
+    public Poly(Coordinate up_left, Coordinate bottom_right, char symbol)
+    {
+        up = new HorizontalLine(x_start: up_left.X, x_end: bottom_right.X, y: up_left.Y, symbol: symbol);
+        bottom = new HorizontalLine(x_start: up_left.X, x_end: bottom_right.X, y: bottom_right.Y, symbol: symbol);
+        left = new VerticalLine(y_start: up_left.Y, y_end: bottom_right.Y, x: up_left.X, symbol: symbol);
+        right = new VerticalLine(y_start: up_left.Y, y_end: bottom_right.Y, x: bottom_right.X, symbol: symbol);
+    }
+
+    public new void Draw()
+    {
+        up.Draw();
+        bottom.Draw();
+        left.Draw();
+        right.Draw();
+    }
+}
+}
